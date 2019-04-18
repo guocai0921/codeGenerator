@@ -1,0 +1,23 @@
+package ${table.getControllerPackage()};
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import ${table.getServicePackage()}.${table.getEntityName()}Service;
+
+/**
+ * ${table.getEntityName()}Controller ${table.getTableDesc()}Controller
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+@RestController
+@RequestMapping("${table.getStrutsActionAlias()}")
+public class ${table.getEntityName()}Controller extends BaseController {
+
+	private Logger logger = LoggerFactory.getLog(${table.getEntityName()}Controller.class);
+	@Autowired
+    private ${table.getEntityName()}Service ${table.getFirstLetterLowerEntityName()}Service;
+}

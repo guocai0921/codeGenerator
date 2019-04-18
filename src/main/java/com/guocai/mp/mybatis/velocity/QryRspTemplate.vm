@@ -1,0 +1,58 @@
+package ${table.getEntityPackage()};
+
+import java.util.Date;
+import com.taikang.xboot.sdk.model.bo.BaseBO;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+/**
+
+* [table="${table.tableName}" | type="${table.tableType}]"
+* @ClassName:   ${table.getEntityName()}QryRsp
+* @Description: ${table.getTableDesc()}查询返回业务实体
+* @author:      ${Author}
+* @version:     ${Version}
+* @date:        ${Date}
+*/
+public class ${table.getEntityName()}QryRsp extends BaseBO {
+
+	// 属性列表
+
+#foreach( $column in $table.getColumns())
+	#if(!$column.isExcludeFiled())
+	// $column.getColumnDesc()
+	private $column.getFieldJavaType() $column.getFieldName();
+	#end
+#end
+	// 构造方法
+	public ${table.getEntityName()}QryRsp() {
+		super();
+	}
+
+	// 属性读写
+#foreach( $column in $table.getColumns())
+	#if(!$column.isExcludeFiled())
+	/**
+	* 获取$column.getColumnDesc()
+	* @return $column.getFieldJavaType()
+	*/
+	public $column.getFieldJavaType() get$column.getFirstLetterUpperFieldName()() {
+		return $column.getFieldName();
+	}
+
+	/**
+	* 设置$column.getColumnDesc()
+	* @param $column.getFieldName()
+	*/
+	public ${table.getEntityName()}QryRsp set$column.getFirstLetterUpperFieldName()($column.getFieldJavaType() $column.getFieldName()) {
+	this.$column.getFieldName() = $column.getFieldName();
+		return this;
+	}
+
+	#end
+#end
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this , ToStringStyle.SHORT_PREFIX_STYLE );
+	}
+}

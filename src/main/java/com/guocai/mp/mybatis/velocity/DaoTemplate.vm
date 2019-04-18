@@ -1,0 +1,16 @@
+package ${table.getServicePackage()};
+
+import com.taikang.xboot.crud.dao.CrudDao;
+import ${table.getEntityPackage()}.${table.getEntityName()}PO;
+
+/**
+ * ${table.getEntityName()}Dao ${table.getTableDesc()}DAO接口
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+ 
+public interface ${table.getEntityName()}Dao extends CrudDao<${table.getEntityName()}PO> {
+
+}
+

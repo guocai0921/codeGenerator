@@ -1,0 +1,25 @@
+package ${table.getJavaMapperPackage()};
+
+import com.taikang.xboot.crud.dao.support.CrudDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import ${table.getDaoPackage()}.${table.getEntityName()}Dao;
+import ${table.getJavaMapperPackage()}.${table.getEntityName()}Access;
+import ${table.getEntityPackage()}.${table.getEntityName()}PO;
+
+/**
+ * ${table.getEntityName()}DaoMy ${table.getTableDesc()}DAO数据访问用mybatis实现
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+@Component
+public class ${table.getEntityName()}DaoMy extends CrudDaoSupport<${table.getEntityName()}PO> implements ${table.getEntityName()}Dao{
+    @Autowired
+    private ${table.getEntityName()}Access ${table.getFirstLetterLowerEntityName()}Access;
+
+    @Override
+    public ${table.getEntityName()}Access getAccess() {
+        return ${table.getFirstLetterLowerEntityName()}Access;
+    }
+}

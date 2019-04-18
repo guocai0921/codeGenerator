@@ -1,0 +1,15 @@
+package ${table.getServicePackage()};
+
+import com.taikang.xboot.crud.service.CrudService;
+
+/**
+ * ${table.getEntityName()}Service ${table.getTableDesc()}Service
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+ 
+public interface ${table.getEntityName()}Service extends CrudService {
+
+}
+

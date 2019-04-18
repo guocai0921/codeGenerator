@@ -1,0 +1,21 @@
+package ${table.getServiceImplPackage()};
+
+import com.taikang.xboot.crud.service.support.CrudServiceSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ${table.getDaoPackage()}.${table.getEntityName()}Dao;
+import ${table.getServicePackage()}.${table.getEntityName()}Service;
+
+/**
+ * ${table.getEntityName()}ServiceImpl ${table.getTableDesc()}ServiceImpl
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+ 
+@Service
+public class ${table.getEntityName()}ServiceImpl extends CrudServiceSupport implements ${table.getEntityName()}Service{
+	 @Autowired
+	 private ${table.getEntityName()}Dao ${table.getFirstLetterLowerEntityName()}Dao;
+
+}

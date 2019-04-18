@@ -1,0 +1,81 @@
+package ${table.getEntityPackage()};
+
+import java.util.Date;
+import com.taikang.xboot.sdk.model.po.BasePO;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+/**
+
+ * [table="${table.tableName}" | type="${table.tableType}]"
+ * @ClassName:   ${table.getEntityName()}PO
+ * @Description: ${table.getTableDesc()}持久化实体
+ * @author:      ${Author}
+ * @version:     ${Version}
+ * @date:        ${Date}
+ */
+public class ${table.getEntityName()}PO extends BasePO {
+
+	/*-------------------------------------------
+	|                属性名常量               |
+	===========================================*/
+	public static class Property{
+		private Property() {}
+#foreach( $column in $table.getColumns())
+	#if(!$column.isExcludeFiled())
+		public static final String $column.getFieldName() = "$column.getFieldName()";
+	#end
+#end
+	}
+
+
+
+	public ${table.getEntityName()}PO() {
+		super();
+	}
+
+	public ${table.getEntityName()}PO(String id){
+		super(id);
+	}
+
+	public static ${table.getEntityName()}PO build(){
+		return new ${table.getEntityName()}PO();
+	}
+
+#foreach( $column in $table.getColumns())
+	#if(!$column.isExcludeFiled())
+	/**
+	* $column.getColumnDesc()
+	*/
+	private $column.getFieldJavaType() $column.getFieldName();
+
+#end
+#end
+
+#foreach( $column in $table.getColumns())
+#if(!$column.isExcludeFiled())
+	/**
+	 * 获取$column.getColumnDesc()
+	 * @return $column.getFieldJavaType()
+	*/
+	public $column.getFieldJavaType() get$column.getFirstLetterUpperFieldName()() {
+		return $column.getFieldName();
+	}
+	
+	/**
+	 * 设置$column.getColumnDesc()
+	 * @param $column.getFieldName()
+	*/
+	public ${table.getEntityName()}PO set$column.getFirstLetterUpperFieldName()($column.getFieldJavaType() $column.getFieldName()) {
+		this.$column.getFieldName() = $column.getFieldName();
+		return this;
+	}
+	
+#end
+#end
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this , ToStringStyle.SHORT_PREFIX_STYLE );
+	}
+
+}

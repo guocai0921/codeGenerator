@@ -1,0 +1,15 @@
+package ${table.getJavaMapperPackage()};
+
+import com.taikang.xboot.crud.dao.access.CrudAccess;
+import ${table.getEntityPackage()}.${table.getEntityName()}PO;
+
+/**
+ * ${table.getEntityName()}Access ${table.getTableDesc()}数据访问层
+ * @author ${Author}
+ * @version ${Version}
+ * @date ${Date}
+ */
+
+public interface ${table.getEntityName()}Access extends CrudAccess<${table.getEntityName()}PO> {
+
+}
