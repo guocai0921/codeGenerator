@@ -2,6 +2,20 @@
 git log --pretty=oneline 文件路径
 git show 6b14b5883e5a03d5e2110eb78633f622e81a36ac 文件路径
 
+添加最小配置:
+git config --local user.name 'lunzi'
+git config --local user.email 'lunzi@163.com'
+--local,--global,--system的配置文件在哪个位置
+local的在.git/config里面；global的在个人home目录下的.gitconfig里面；system应该在git安装目录的下。
+
+清除设置
+$ git config --unset --local user.name
+$ git config --unset --global user.name
+$ git config --unset --system user.name
+
+设置Git大小写不敏感
+git config core.ignorecase true
+
 git log --all 查看所有分支的历史
 git log --all --graph 查看图形化的 log 地址
 git log --oneline 查看单行的简洁历史。
@@ -10,6 +24,9 @@ git log --oneline --all -n4 --graph 查看所有分支最近 4 条单行的图�
 git help --web log 跳转到git log 的帮助文档网页
 git mv text.txt text.md 为文件重命名
 git有三个类型：commit、blob、tree;
+
+
+git checkout -b temp <commitId> 检出分支
 
 //cat命令主要用来查看文件内容，创建文件，文件合并，追加文件内容等功能。
 cat HEAD 查看HEAD文件的内容 
